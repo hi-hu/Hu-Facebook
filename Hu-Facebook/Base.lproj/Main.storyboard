@@ -156,6 +156,7 @@
                     </view>
                     <connections>
                         <outlet property="photoImageView" destination="xSG-7R-v14" id="bHs-iP-Pql"/>
+                        <outlet property="scrollView" destination="UNy-t7-F3V" id="oUX-jy-oMS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5nP-2X-heQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

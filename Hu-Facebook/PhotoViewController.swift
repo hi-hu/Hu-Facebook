@@ -8,17 +8,26 @@
 
 import UIKit
 
-class PhotoViewController: UIViewController {
+class PhotoViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var photoImageView: UIImageView!
 
     var photoImage: UIImage!
     var endFrame: CGRect!
+    var scrolledPhotoFrame: CGRect!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // data passed from feedViewController gets stored here
         photoImageView.image = photoImage
         photoImageView.frame = endFrame
+        
+        // default value of scrolledPhotoFrame is unscrolled position of photoImageView
+        scrolledPhotoFrame = endFrame
+            
+        scrollView.delegate = self      // required for registering scroll events
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +39,28 @@ class PhotoViewController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    func scrollViewDidScroll(scrollView: UIScrollView!) {
+        // This method is called as the user scrolls
+//        println(scrollView.contentOffset.y)
+//        println(scrollView.frame.origin)
+
+    }
+    
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView!, willDecelerate decelerate: Bool) {
+        
+        var offsetY = scrollView.contentOffset.y
+        
+        if (abs(offsetY) > 80) {
+            scrolledPhotoFrame.origin.y = scrolledPhotoFrame.origin.y - offsetY
+            photoImageView.hidden = true
+//            println(scrolledPhotoFrame)
+            dismissViewControllerAnimated(true, completion: nil)
+        }
+
+        // This method is called right as the user lifts their finger
+    }
+    
     /*
     // MARK: - Navigation
 

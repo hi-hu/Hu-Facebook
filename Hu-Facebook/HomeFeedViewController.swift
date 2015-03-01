@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
+class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var homeFeedImage: UIImageView!
@@ -31,29 +31,36 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
         selectedImageView = sender.view as UIImageView
         performSegueWithIdentifier("photoSegue", sender: self)
     }
+
+    /* Custom Transition Animations
+    ----------------------------------------------------------------------------*/
     
-    //-----------------------------------------------------------------------------
-    ////// transition delegate methods
+    // transition delegate methods
     func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
         isPresenting = true
         return self
     }
-    
+
+    // transition delegate methods
     func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
         isPresenting = false
         return self
     }
     
-    ////// the methods that actually control the transitions
+    // The value here should be the duration of the animations scheduled in the animationTransition method
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        // The value here should be the duration of the animations scheduled in the animationTransition method
         return 0.4
     }
     
+    // the methods that actually control the transitions
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        
+        // unque values to transitions
         var containerView = transitionContext.containerView()
         var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+
+        // getting the position and size of the frame from selectedImageView
         var newFrame = containerView.convertRect(selectedImageView.frame, fromView: scrollView)
 
         // present transition animation
@@ -61,7 +68,6 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
             
             var photoViewController = toViewController as PhotoViewController
             var endFrame = photoViewController.endFrame
-            
             
             containerView.addSubview(toViewController.view)
             
@@ -73,19 +79,21 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
             // making a copy of the selected image view and setting the same size
             var movingImageView = UIImageView(image: selectedImageView.image)
 
-            movingImageView.frame = newFrame                                // what is the position
-            movingImageView.contentMode = selectedImageView.contentMode     // what is the aspect
-            movingImageView.clipsToBounds = selectedImageView.clipsToBounds // what is the clipping
+            movingImageView.frame = newFrame                                    // position & size
+            movingImageView.contentMode = selectedImageView.contentMode         // e.g. aspect fill
+            movingImageView.clipsToBounds = selectedImageView.clipsToBounds     // bool value for clipping
             containerView.addSubview(movingImageView)
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 
                 toViewController.view.alpha = 1
-                movingImageView.frame = endFrame //photoViewController.photoImageView.frame
+                
+                // animating the copy of selectedImageView image to the photoViewController size and position
+                movingImageView.frame = endFrame
                 
             }) { (finished: Bool) -> Void in
                 transitionContext.completeTransition(true)
-                self.selectedImageView.hidden = false
                 movingImageView.removeFromSuperview()
+                self.selectedImageView.hidden = false
                 photoViewController.photoImageView.hidden = false
             }
         
@@ -95,17 +103,19 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
             // to and from during the transition are different
             var photoViewController = fromViewController as PhotoViewController
             
-            // making a copy of the opened image view and setting the same size
+            // making a copy of the opened image view and setting the same size and frame
             var movingImageView = UIImageView(image: photoViewController.photoImageView.image)
             
-            movingImageView.frame = photoViewController.photoImageView.frame                // what is the position
-            movingImageView.contentMode = selectedImageView.contentMode     // what is the aspect
-            movingImageView.clipsToBounds = selectedImageView.clipsToBounds // what is the clipping
+            movingImageView.frame = photoViewController.scrolledPhotoFrame   // position & size
+            movingImageView.contentMode = selectedImageView.contentMode         // e.g. aspect fill
+            movingImageView.clipsToBounds = selectedImageView.clipsToBounds     // bool value for clipping
             containerView.addSubview(movingImageView)
             
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 
                 fromViewController.view.alpha = 0
+                
+                // animating the copy of photoViewController image back to the selectedImageView size and position
                 movingImageView.frame = newFrame
                 
             }) { (finished: Bool) -> Void in
@@ -119,17 +129,19 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
     }
     //-----------------------------------------------------------------------------
     
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // calculating the size
+        
+        var destinationViewController = segue.destinationViewController as PhotoViewController
+
+        // calculating the size and position of the final frame size and position of the image in photoViewController
         var frameHeight = (320 * selectedImageView.image!.size.height) / selectedImageView.image!.size.width
         var endFrame = CGRect(x: 0, y: (view.frame.size.height - frameHeight) / 2, width: 320, height: frameHeight )
-        var destinationViewController = segue.destinationViewController as PhotoViewController
         
+        // passing the phot and end frame data to photoViewController
         destinationViewController.photoImage = self.selectedImageView.image
         destinationViewController.endFrame = endFrame
 
