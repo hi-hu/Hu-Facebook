@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>015A3D5E-EDB8-4F36-9A12-5784560F8E76</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Hu-Facebook</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>249C0F6E5BC31BCA9EEE69876C12B2EAB5B4B15A</key>
+		<string>https://github.com/hi-hu/Hu-Facebook.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Hu-Facebook.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>249C0F6E5BC31BCA9EEE69876C12B2EAB5B4B15A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/hi-hu/Hu-Facebook.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>249C0F6E5BC31BCA9EEE69876C12B2EAB5B4B15A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>249C0F6E5BC31BCA9EEE69876C12B2EAB5B4B15A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Hu-Facebook</string>
+		</dict>
+	</array>
+</dict>
+</plist>
