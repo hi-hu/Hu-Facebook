@@ -138,9 +138,6 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView!, atScale scale: CGFloat) {
-        wedding2.hidden = false
-        wedding3.hidden = false
-        wedding4.hidden = false
-        wedding5.hidden = false
+
     }
 }
