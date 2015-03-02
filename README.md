@@ -4,7 +4,7 @@
 - Hours: 12+
 - Status: All required stories and optionals (sorta, full screen is buggy)
 
-![GIF Walkthrough](/_assets/hu-facebook-overview.gif)
+![GIF Walkthrough](/assets/hu-facebook-overview.gif)
 
 
 #### Requirements
