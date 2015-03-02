@@ -114,7 +114,7 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
     
     // selecting the view to zoom
     func viewForZoomingInScrollView(scrollView: UIScrollView!) -> UIView! {
-        switch pageIndex {
+        switch currentPage {
         case 0:
             return wedding1
         case 1:
@@ -128,5 +128,19 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
         default:
             return nil
         }
+    }
+    
+    func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView!) {
+        wedding2.hidden = true
+        wedding3.hidden = true
+        wedding4.hidden = true
+        wedding5.hidden = true
+    }
+    
+    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView!, atScale scale: CGFloat) {
+        wedding2.hidden = false
+        wedding3.hidden = false
+        wedding4.hidden = false
+        wedding5.hidden = false
     }
 }
