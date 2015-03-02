@@ -130,7 +130,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="UNy-t7-F3V">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" maximumZoomScale="3" id="UNy-t7-F3V">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -152,9 +152,11 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="blackView" destination="SWv-1v-xiO" id="9fg-Ox-qqK"/>
+                        <outlet property="doneButton" destination="jZW-8w-vnQ" id="tFL-hp-uo0"/>
+                        <outlet property="photoActions" destination="7OY-2c-w9N" id="oLT-vX-VsE"/>
                         <outlet property="photoImageView" destination="xSG-7R-v14" id="bHs-iP-Pql"/>
                         <outlet property="scrollView" destination="UNy-t7-F3V" id="oUX-jy-oMS"/>
                     </connections>

@@ -15,6 +15,7 @@
 		B8346B881A9D962800825BA4 /* Hu_FacebookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8346B871A9D962800825BA4 /* Hu_FacebookTests.swift */; };
 		B8346B931A9D9C8700825BA4 /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8346B921A9D9C8700825BA4 /* HomeFeedViewController.swift */; };
 		B87706DB1AA24EAA00ED0D8B /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87706DA1AA24EAA00ED0D8B /* PhotoViewController.swift */; };
+		B87706DD1AA3EF0700ED0D8B /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87706DC1AA3EF0700ED0D8B /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		B8346B871A9D962800825BA4 /* Hu_FacebookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hu_FacebookTests.swift; sourceTree = "<group>"; };
 		B8346B921A9D9C8700825BA4 /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
 		B87706DA1AA24EAA00ED0D8B /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		B87706DC1AA3EF0700ED0D8B /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				B8346B711A9D962800825BA4 /* AppDelegate.swift */,
 				B8346B731A9D962800825BA4 /* ViewController.swift */,
+				B87706DC1AA3EF0700ED0D8B /* Common.swift */,
 				B8346B751A9D962800825BA4 /* Main.storyboard */,
 				B8346B781A9D962800825BA4 /* Images.xcassets */,
 				B8346B7A1A9D962800825BA4 /* LaunchScreen.xib */,
@@ -229,6 +232,7 @@
 				B8346B741A9D962800825BA4 /* ViewController.swift in Sources */,
 				B87706DB1AA24EAA00ED0D8B /* PhotoViewController.swift in Sources */,
 				B8346B721A9D962800825BA4 /* AppDelegate.swift in Sources */,
+				B87706DD1AA3EF0700ED0D8B /* Common.swift in Sources */,
 				B8346B931A9D9C8700825BA4 /* HomeFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

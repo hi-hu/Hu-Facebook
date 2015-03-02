@@ -12,9 +12,14 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var photoImageView: UIImageView!
-
+    @IBOutlet weak var blackView: UIView!
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var photoActions: UIImageView!
+    
+    
     var photoImage: UIImage!
     var endFrame: CGRect!
+    // placeholder for if the image frame is scrolled
     var scrolledPhotoFrame: CGRect!
     
     override func viewDidLoad() {
@@ -26,8 +31,9 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
         
         // default value of scrolledPhotoFrame is unscrolled position of photoImageView
         scrolledPhotoFrame = endFrame
-            
-        scrollView.delegate = self      // required for registering scroll events
+
+        // required for registering scroll events
+        scrollView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,36 +45,33 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    // change the alpha of the background and button as the user scrolls
     func scrollViewDidScroll(scrollView: UIScrollView!) {
-        // This method is called as the user scrolls
-//        println(scrollView.contentOffset.y)
-//        println(scrollView.frame.origin)
-
+        
+        var alpha = CGFloat(1 - abs(scrollView.contentOffset.y) / 100)
+        var alpha2 = CGFloat(1 - abs(scrollView.contentOffset.y) / 20)
+        
+        blackView.alpha = alpha
+        doneButton.alpha = alpha2
+        photoActions.alpha = alpha2
     }
     
-    
+    // This method is called right as the user lifts their finger
     func scrollViewDidEndDragging(scrollView: UIScrollView!, willDecelerate decelerate: Bool) {
-        
+
         var offsetY = scrollView.contentOffset.y
+        var alpha = CGFloat(1 - abs(scrollView.contentOffset.y) / 240)
         
-        if (abs(offsetY) > 80) {
+        if (abs(offsetY) > 100) {
             scrolledPhotoFrame.origin.y = scrolledPhotoFrame.origin.y - offsetY
+            blackView.hidden = true
             photoImageView.hidden = true
-//            println(scrolledPhotoFrame)
             dismissViewControllerAnimated(true, completion: nil)
         }
-
-        // This method is called right as the user lifts their finger
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // selecting the view to zoom
+    func viewForZoomingInScrollView(scrollView: UIScrollView!) -> UIView! {
+        return photoImageView
     }
-    */
-
 }

@@ -18,7 +18,6 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         scrollView.contentSize = homeFeedImage.frame.size
     }
 
@@ -98,7 +97,7 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
             }
         
         // dismiss transition animation
-        } else {
+        } else {    
             
             // to and from during the transition are different
             var photoViewController = fromViewController as PhotoViewController
@@ -130,9 +129,6 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
     //-----------------------------------------------------------------------------
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         var destinationViewController = segue.destinationViewController as PhotoViewController
