@@ -175,7 +175,6 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
                 fromViewController.view.removeFromSuperview()
                 movingImageView.removeFromSuperview()
                 self.selectedImageView.hidden = false
-
             }
         }
     }
