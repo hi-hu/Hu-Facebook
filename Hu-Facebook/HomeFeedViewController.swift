@@ -12,9 +12,15 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var homeFeedImage: UIImageView!
+    @IBOutlet weak var wedding1: UIImageView!
+    @IBOutlet weak var wedding2: UIImageView!
+    @IBOutlet weak var wedding3: UIImageView!
+    @IBOutlet weak var wedding4: UIImageView!
+    @IBOutlet weak var wedding5: UIImageView!
     
     var selectedImageView: UIImageView!
     var isPresenting: Bool = true
+    var pageIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +34,20 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
     
     @IBAction func imageDidTap(sender: UITapGestureRecognizer) {
         selectedImageView = sender.view as UIImageView
+        
+        // determine which image was selected
+        if(selectedImageView.isEqual(wedding1)) {
+            pageIndex = 0
+        } else if(selectedImageView.isEqual(wedding2)) {
+            pageIndex = 1
+        } else if(selectedImageView.isEqual(wedding3)) {
+            pageIndex = 2
+        } else if(selectedImageView.isEqual(wedding4)) {
+            pageIndex = 3
+        } else {
+            pageIndex = 4
+        }
+
         performSegueWithIdentifier("photoSegue", sender: self)
     }
 
@@ -77,11 +97,12 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
             
             // making a copy of the selected image view and setting the same size
             var movingImageView = UIImageView(image: selectedImageView.image)
-
+            
             movingImageView.frame = newFrame                                    // position & size
             movingImageView.contentMode = selectedImageView.contentMode         // e.g. aspect fill
             movingImageView.clipsToBounds = selectedImageView.clipsToBounds     // bool value for clipping
             containerView.addSubview(movingImageView)
+
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 
                 toViewController.view.alpha = 1
@@ -105,7 +126,7 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
             // making a copy of the opened image view and setting the same size and frame
             var movingImageView = UIImageView(image: photoViewController.photoImageView.image)
             
-            movingImageView.frame = photoViewController.scrolledPhotoFrame   // position & size
+            movingImageView.frame = photoViewController.scrolledPhotoFrame      // position & size
             movingImageView.contentMode = selectedImageView.contentMode         // e.g. aspect fill
             movingImageView.clipsToBounds = selectedImageView.clipsToBounds     // bool value for clipping
             containerView.addSubview(movingImageView)
@@ -137,9 +158,16 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
         var frameHeight = (320 * selectedImageView.image!.size.height) / selectedImageView.image!.size.width
         var endFrame = CGRect(x: 0, y: (view.frame.size.height - frameHeight) / 2, width: 320, height: frameHeight )
         
-        // passing the phot and end frame data to photoViewController
-        destinationViewController.photoImage = self.selectedImageView.image
+        // passing the photo and end frame data to photoViewController
+//        destinationViewController.photoImage = self.selectedImageView.image
         destinationViewController.endFrame = endFrame
+
+        destinationViewController.w1 = wedding1.image
+        destinationViewController.w2 = wedding2.image
+        destinationViewController.w3 = wedding3.image
+        destinationViewController.w4 = wedding4.image
+        destinationViewController.w5 = wedding5.image
+        destinationViewController.pageIndex = pageIndex
 
         destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
         destinationViewController.transitioningDelegate = self

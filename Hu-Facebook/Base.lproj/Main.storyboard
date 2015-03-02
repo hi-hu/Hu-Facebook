@@ -28,20 +28,20 @@
                                             <outletCollection property="gestureRecognizers" destination="Jyu-3f-wTL" appends="YES" id="1dL-Z9-O9m"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding3" id="5Bf-xV-FXk">
-                                        <rect key="frame" x="162" y="170" width="156" height="104"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="uW1-B0-Cnk" appends="YES" id="6HG-BF-UhI"/>
-                                        </connections>
-                                    </imageView>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding2" id="YD6-ba-ZNs">
                                         <rect key="frame" x="4" y="328" width="156" height="156"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="bYr-pD-0RG" appends="YES" id="Mbk-6M-msU"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding3" id="5Bf-xV-FXk">
+                                        <rect key="frame" x="162" y="170" width="156" height="104"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="uW1-B0-Cnk" appends="YES" id="6HG-BF-UhI"/>
                                         </connections>
                                     </imageView>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding4" id="FKk-RE-Z4G">
@@ -79,6 +79,11 @@
                     <connections>
                         <outlet property="homeFeedImage" destination="4oP-EC-jvu" id="g3u-ix-afH"/>
                         <outlet property="scrollView" destination="7Vt-Gh-MDH" id="spY-Pn-Kor"/>
+                        <outlet property="wedding1" destination="ych-F7-d1B" id="AKV-6h-Ztm"/>
+                        <outlet property="wedding2" destination="YD6-ba-ZNs" id="XQz-dy-q3P"/>
+                        <outlet property="wedding3" destination="5Bf-xV-FXk" id="89M-LM-DCi"/>
+                        <outlet property="wedding4" destination="FKk-RE-Z4G" id="o6J-nv-vq2"/>
+                        <outlet property="wedding5" destination="WmW-Bp-p9g" id="Fv4-Lg-UIO"/>
                         <segue destination="ybB-CH-pL9" kind="modal" identifier="photoSegue" id="64u-Fe-bYR"/>
                     </connections>
                 </viewController>
@@ -130,12 +135,32 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" maximumZoomScale="3" id="UNy-t7-F3V">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" maximumZoomScale="3" id="UNy-t7-F3V">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="xSG-7R-v14">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="xSG-7R-v14" userLabel="wedding1" colorLabel="IBBuiltInLabel-Orange">
                                         <rect key="frame" x="0.0" y="44" width="320" height="482"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Tav-Fy-Fl7" userLabel="wedding2" colorLabel="IBBuiltInLabel-Orange">
+                                        <rect key="frame" x="320" y="44" width="320" height="482"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fhr-D2-H1o" userLabel="wedding3" colorLabel="IBBuiltInLabel-Orange">
+                                        <rect key="frame" x="640" y="43" width="320" height="482"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ion-ZS-uNW" userLabel="wedding4" colorLabel="IBBuiltInLabel-Orange">
+                                        <rect key="frame" x="960" y="43" width="320" height="482"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="26r-8t-IGw" userLabel="wedding5" colorLabel="IBBuiltInLabel-Orange">
+                                        <rect key="frame" x="1280" y="43" width="320" height="482"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
@@ -159,6 +184,10 @@
                         <outlet property="photoActions" destination="7OY-2c-w9N" id="oLT-vX-VsE"/>
                         <outlet property="photoImageView" destination="xSG-7R-v14" id="bHs-iP-Pql"/>
                         <outlet property="scrollView" destination="UNy-t7-F3V" id="oUX-jy-oMS"/>
+                        <outlet property="wedding2" destination="Tav-Fy-Fl7" id="DeF-mN-Xqe"/>
+                        <outlet property="wedding3" destination="fhr-D2-H1o" id="e5F-Sp-D6B"/>
+                        <outlet property="wedding4" destination="Ion-ZS-uNW" id="PLE-bp-iDo"/>
+                        <outlet property="wedding5" destination="26r-8t-IGw" id="cFd-dO-5qC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5nP-2X-heQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
