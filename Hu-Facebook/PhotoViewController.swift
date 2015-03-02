@@ -15,22 +15,19 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var photoActions: UIImageView!
     
-    @IBOutlet weak var photoImageView: UIImageView! // need to kill
+    // for the side scrolling gallery
+    @IBOutlet weak var wedding1: UIImageView!
     @IBOutlet weak var wedding2: UIImageView!
     @IBOutlet weak var wedding3: UIImageView!
     @IBOutlet weak var wedding4: UIImageView!
     @IBOutlet weak var wedding5: UIImageView!
-    
-    
-    var photoImage: UIImage! // need to kill
-    
     var w1: UIImage!
     var w2: UIImage!
     var w3: UIImage!
     var w4: UIImage!
     var w5: UIImage!
     var pageIndex: Int!
-
+    var currentPage: Int!
     var endFrame: CGRect!
 
     // placeholder for if the image frame is scrolled
@@ -40,23 +37,36 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         // data passed from feedViewController gets stored here
-        photoImageView.image = photoImage
-        photoImageView.frame = endFrame
-
-//        wedding1.image = w1
+        wedding1.image = w1
         wedding2.image = w2
         wedding3.image = w3
         wedding4.image = w4
         wedding5.image = w5
         
+        // set the right endFrame based on the selectedImage
+        switch pageIndex {
+        case 0:
+            wedding1.frame = endFrame
+        case 1:
+            wedding2.frame = endFrame
+            wedding2.frame.origin.x = 320
+        case 2:
+            wedding3.frame = endFrame
+            wedding3.frame.origin.x = 640
+        case 3:
+            wedding4.frame = endFrame
+            wedding4.frame.origin.x = 960
+        case 4:
+            wedding5.frame = endFrame
+            wedding5.frame.origin.x = 1280
+        default:
+            break
+        }
+        
+        currentPage = pageIndex
         
         scrollView.contentSize = CGSize(width: 1600, height: 568)
-        
-        
         scrollView.contentOffset.x = CGFloat(pageIndex * 320)
-        
-//        var page = Int(scrollView.contentOffset.x / (scrollView.contentSize.width/4))
-        
         
         // default value of scrolledPhotoFrame is unscrolled position of photoImageView
         scrolledPhotoFrame = endFrame
@@ -74,8 +84,10 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    // change the alpha of the background and button as the user scrolls
+    // called while scrolling
     func scrollViewDidScroll(scrollView: UIScrollView!) {
+        
+        currentPage = Int(scrollView.contentOffset.x / 320)
         
         var alpha = CGFloat(1 - abs(scrollView.contentOffset.y) / 100)
         var alpha2 = CGFloat(1 - abs(scrollView.contentOffset.y) / 20)
@@ -94,7 +106,7 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
         if (abs(offsetY) > 100) {
             scrolledPhotoFrame.origin.y = scrolledPhotoFrame.origin.y - offsetY
             blackView.hidden = true
-            photoImageView.hidden = true
+            scrollView.hidden = true // could be wrong
             doneButton.hidden = true
             dismissViewControllerAnimated(true, completion: nil)
         }
@@ -102,6 +114,19 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
     
     // selecting the view to zoom
     func viewForZoomingInScrollView(scrollView: UIScrollView!) -> UIView! {
-        return photoImageView
+        switch pageIndex {
+        case 0:
+            return wedding1
+        case 1:
+            return wedding2
+        case 2:
+            return wedding3
+        case 3:
+            return wedding4
+        case 4:
+            return wedding5
+        default:
+            return nil
+        }
     }
 }

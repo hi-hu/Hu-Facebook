@@ -93,7 +93,13 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
             // set all the transitions before hand
             toViewController.view.alpha = 0
             selectedImageView.hidden = true
-            photoViewController.photoImageView.hidden = true
+            
+            // hide all the images
+            photoViewController.wedding1.hidden = true
+            photoViewController.wedding2.hidden = true
+            photoViewController.wedding3.hidden = true
+            photoViewController.wedding4.hidden = true
+            photoViewController.wedding5.hidden = true
             
             // making a copy of the selected image view and setting the same size
             var movingImageView = UIImageView(image: selectedImageView.image)
@@ -114,7 +120,13 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
                 transitionContext.completeTransition(true)
                 movingImageView.removeFromSuperview()
                 self.selectedImageView.hidden = false
-                photoViewController.photoImageView.hidden = false
+                
+                // show all the images
+                photoViewController.wedding1.hidden = false
+                photoViewController.wedding2.hidden = false
+                photoViewController.wedding3.hidden = false
+                photoViewController.wedding4.hidden = false
+                photoViewController.wedding5.hidden = false
             }
         
         // dismiss transition animation
@@ -123,8 +135,28 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
             // to and from during the transition are different
             var photoViewController = fromViewController as PhotoViewController
             
-            // making a copy of the opened image view and setting the same size and frame
-            var movingImageView = UIImageView(image: photoViewController.photoImageView.image)
+            // making a copy of the image based on paging and setting the same size and frame
+            var movingImageView = UIImageView()
+
+            switch photoViewController.currentPage {
+            case 0:
+                movingImageView = UIImageView(image: photoViewController.wedding1.image)
+                newFrame = containerView.convertRect(wedding1.frame, fromView: scrollView)
+            case 1:
+                movingImageView = UIImageView(image: photoViewController.wedding2.image)
+                newFrame = containerView.convertRect(wedding2.frame, fromView: scrollView)
+            case 2:
+                movingImageView = UIImageView(image: photoViewController.wedding3.image)
+                newFrame = containerView.convertRect(wedding3.frame, fromView: scrollView)
+            case 3:
+                movingImageView = UIImageView(image: photoViewController.wedding4.image)
+                newFrame = containerView.convertRect(wedding4.frame, fromView: scrollView)
+            case 4:
+                movingImageView = UIImageView(image: photoViewController.wedding5.image)
+                newFrame = containerView.convertRect(wedding5.frame, fromView: scrollView)
+            default:
+                break
+            }
             
             movingImageView.frame = photoViewController.scrolledPhotoFrame      // position & size
             movingImageView.contentMode = selectedImageView.contentMode         // e.g. aspect fill
@@ -159,14 +191,12 @@ class HomeFeedViewController: UIViewController, UIViewControllerAnimatedTransiti
         var endFrame = CGRect(x: 0, y: (view.frame.size.height - frameHeight) / 2, width: 320, height: frameHeight )
         
         // passing the photo and end frame data to photoViewController
-//        destinationViewController.photoImage = self.selectedImageView.image
-        destinationViewController.endFrame = endFrame
-
         destinationViewController.w1 = wedding1.image
         destinationViewController.w2 = wedding2.image
         destinationViewController.w3 = wedding3.image
         destinationViewController.w4 = wedding4.image
         destinationViewController.w5 = wedding5.image
+        destinationViewController.endFrame = endFrame
         destinationViewController.pageIndex = pageIndex
 
         destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom

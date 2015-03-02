@@ -135,34 +135,29 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" maximumZoomScale="3" id="UNy-t7-F3V">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" maximumZoomScale="3" id="UNy-t7-F3V">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="xSG-7R-v14" userLabel="wedding1" colorLabel="IBBuiltInLabel-Orange">
                                         <rect key="frame" x="0.0" y="44" width="320" height="482"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Tav-Fy-Fl7" userLabel="wedding2" colorLabel="IBBuiltInLabel-Orange">
                                         <rect key="frame" x="320" y="44" width="320" height="482"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fhr-D2-H1o" userLabel="wedding3" colorLabel="IBBuiltInLabel-Orange">
                                         <rect key="frame" x="640" y="43" width="320" height="482"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ion-ZS-uNW" userLabel="wedding4" colorLabel="IBBuiltInLabel-Orange">
                                         <rect key="frame" x="960" y="43" width="320" height="482"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="26r-8t-IGw" userLabel="wedding5" colorLabel="IBBuiltInLabel-Orange">
                                         <rect key="frame" x="1280" y="43" width="320" height="482"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
@@ -182,8 +177,8 @@
                         <outlet property="blackView" destination="SWv-1v-xiO" id="9fg-Ox-qqK"/>
                         <outlet property="doneButton" destination="jZW-8w-vnQ" id="tFL-hp-uo0"/>
                         <outlet property="photoActions" destination="7OY-2c-w9N" id="oLT-vX-VsE"/>
-                        <outlet property="photoImageView" destination="xSG-7R-v14" id="bHs-iP-Pql"/>
                         <outlet property="scrollView" destination="UNy-t7-F3V" id="oUX-jy-oMS"/>
+                        <outlet property="wedding1" destination="xSG-7R-v14" id="Y0K-X2-QLH"/>
                         <outlet property="wedding2" destination="Tav-Fy-Fl7" id="DeF-mN-Xqe"/>
                         <outlet property="wedding3" destination="fhr-D2-H1o" id="e5F-Sp-D6B"/>
                         <outlet property="wedding4" destination="Ion-ZS-uNW" id="PLE-bp-iDo"/>
